@@ -1,6 +1,6 @@
 ---
-name: bit issue template
-about: bit 기본 이슈 템플릿
+name: Bit issue template
+about: Bit 기본 이슈 템플릿
 title: "[FEAT]"
 labels: ''
 assignees: ''
