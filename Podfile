@@ -7,4 +7,6 @@ target 'TossClone' do
 
   # Pods for TossClone
 
+  pod 'SwiftLint'
+
 end
