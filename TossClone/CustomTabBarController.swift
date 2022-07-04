@@ -146,7 +146,7 @@ extension CustomTabBarController {
     private func setTabBarFrame() {
         var tabFrame = tabBar.frame
         tabFrame.origin.y -= 5
-        tabFrame.size.height += 5
+        tabFrame.size.height += 6
         tabBar.frame = tabFrame
     }
     
