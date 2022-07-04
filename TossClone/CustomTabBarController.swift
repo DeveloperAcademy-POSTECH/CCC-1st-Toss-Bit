@@ -99,13 +99,29 @@ class CustomTabBarController: UITabBarController {
         super.viewDidLoad()
 
         configureTabBar()
+        configureTabBarLayer()
         configureViewControllers()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setTabBarFrame()
+    }
+}
+
+extension CustomTabBarController {
+    
     private func configureTabBar() {
-        tabBar.backgroundColor = .darkGray
-        tabBar.tintColor = .systemBlue
-        tabBar.unselectedItemTintColor = .systemGray
+        tabBar.backgroundColor = .secondarySystemGroupedBackground
+        tabBar.tintColor = .label
+    }
+    
+    private func configureTabBarLayer() {
+        tabBar.layer.cornerRadius = 25
+        tabBar.layer.masksToBounds = true
+        tabBar.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        tabBar.layer.borderWidth = 1
+        tabBar.layer.borderColor = UIColor.tertiaryLabel.cgColor
     }
     
     private func getNavigationController(_ page: TabBarPage) -> UINavigationController {
@@ -122,4 +138,11 @@ class CustomTabBarController: UITabBarController {
         let controllers: [UINavigationController] = pages.map({ getNavigationController($0) })
         self.viewControllers = controllers
     }
+    
+    private func setTabBarFrame() {
+        var tabFrame = tabBar.frame
+        tabFrame.origin.y -= 5
+        tabBar.frame = tabFrame
+    }
+    
 }
