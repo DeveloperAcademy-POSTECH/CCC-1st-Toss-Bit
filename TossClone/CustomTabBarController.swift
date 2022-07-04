@@ -94,7 +94,7 @@ class CustomTabBarController: UITabBarController {
             }
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -105,6 +105,7 @@ class CustomTabBarController: UITabBarController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        setTabBarBorderColor()
         setTabBarFrame()
     }
 }
@@ -121,7 +122,6 @@ extension CustomTabBarController {
         tabBar.layer.masksToBounds = true
         tabBar.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         tabBar.layer.borderWidth = 1
-        tabBar.layer.borderColor = UIColor.tertiaryLabel.cgColor
     }
     
     private func getNavigationController(_ page: TabBarPage) -> UINavigationController {
@@ -137,6 +137,10 @@ extension CustomTabBarController {
             .sorted(by: { $0.pageOrderNumber() < $1.pageOrderNumber() })
         let controllers: [UINavigationController] = pages.map({ getNavigationController($0) })
         self.viewControllers = controllers
+    }
+    
+    private func setTabBarBorderColor() {
+        tabBar.layer.borderColor = UIColor.tertiaryLabel.cgColor
     }
     
     private func setTabBarFrame() {
