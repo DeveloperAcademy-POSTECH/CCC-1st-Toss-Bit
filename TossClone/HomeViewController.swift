@@ -8,41 +8,45 @@
 import UIKit
 
 final class HomeViewController: UIViewController {
-
-    private let logoImageView: UIImageView = {
-        let image = UIImage(named: "toss")
-        let imageView = UIImageView(image: image)
-        imageView.frame = CGRect(x: 0, y: 0, width: 0, height: 20)
-        imageView.contentMode = .scaleAspectFit
-        return imageView
+    
+    private lazy var logoView: UIStackView = {
+        let logoImage = UIImage(named: "toss")
+        let button = UIButton()
+        button.setImage(logoImage, for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        let spacer = UIView()
+        let stack = UIStackView(arrangedSubviews: [button, spacer])
+        stack.axis = .horizontal
+        stack.distribution = .fillEqually
+        return stack
     }()
 
-    private let plusBarItem: UIBarButtonItem = {
+    private lazy var plusBarItem: UIBarButtonItem = {
         let config = UIImage.SymbolConfiguration(pointSize: 0, weight: .medium)
         let chatImage = UIImage(systemName: "plus", withConfiguration: config)
         let chatBarItem = UIBarButtonItem(image: chatImage,
                                           style: .plain,
-                                          target: HomeViewController.self,
+                                          target: self,
                                           action: #selector(plusButtonTapHandler))
         chatBarItem.tintColor = .systemGray
         return chatBarItem
     }()
 
-    private let chatBarItem: UIBarButtonItem = {
+    private lazy var chatBarItem: UIBarButtonItem = {
         let chatImage = UIImage(systemName: "message.fill")
         let chatBarItem = UIBarButtonItem(image: chatImage,
                                           style: .plain,
-                                          target: HomeViewController.self,
+                                          target: self,
                                           action: #selector(chatButtonTapHandler))
         chatBarItem.tintColor = .systemGray
         return chatBarItem
     }()
 
-    private let bellBarItem: UIBarButtonItem = {
+    private lazy var bellBarItem: UIBarButtonItem = {
         let bellImage = UIImage(systemName: "bell.fill")
         let bellBarItem = UIBarButtonItem(image: bellImage,
                                           style: .plain,
-                                          target: HomeViewController.self,
+                                          target: self,
                                           action: #selector(bellButtonTapHandler))
         bellBarItem.tintColor = .systemGray
         return bellBarItem
@@ -54,7 +58,6 @@ final class HomeViewController: UIViewController {
         configureView()
         setNavigationItem()
     }
-
 }
 
 extension HomeViewController {
@@ -66,17 +69,20 @@ extension HomeViewController {
     }
     
     private func setNavigationItem() {
-        navigationItem.titleView = logoImageView
+        navigationItem.titleView = logoView
         navigationItem.rightBarButtonItems = [bellBarItem, chatBarItem, plusBarItem]
     }
 
-    @objc func plusButtonTapHandler() {
+    @objc
+    func plusButtonTapHandler() {
     }
 
-    @objc func chatButtonTapHandler() {
+    @objc
+    func chatButtonTapHandler() {
     }
 
-    @objc func bellButtonTapHandler() {
+    @objc
+    func bellButtonTapHandler() {
     }
 
 }
