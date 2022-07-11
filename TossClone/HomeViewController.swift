@@ -69,7 +69,7 @@ final class HomeViewController: UIViewController {
     
     private let tossBankView: UIView = {
         let view = UIView()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = ColorStyle.contentView.color
         view.layer.cornerRadius = 20
         return view
     }()
@@ -121,21 +121,21 @@ final class HomeViewController: UIViewController {
     
     private let assetView: UIView = {
         let view = UIView()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = ColorStyle.contentView.color
         view.layer.cornerRadius = 20
         return view
     }()
     
     private let consumptionView: UIView = {
         let view = UIView()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = ColorStyle.contentView.color
         view.layer.cornerRadius = 20
         return view
     }()
     
     private let collectionView: UIView = {
         let view = UIView()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = ColorStyle.contentView.color
         view.layer.cornerRadius = 20
         return view
     }()
