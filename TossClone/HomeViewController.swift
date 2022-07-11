@@ -67,26 +67,26 @@ final class HomeViewController: UIViewController {
         return stack
     }()
     
-    private let tossBankView: UIView = {
+    private lazy var tossBankView: UIView = {
         let view = UIView()
         view.backgroundColor = ColorStyle.contentView.color
         view.layer.cornerRadius = 20
         return view
     }()
     
-    private let tossBankTitleView: UIView = {
+    private lazy var tossBankTitleView: UIView = {
         let view = UIView()
         return view
     }()
     
-    private let tossBankTitleLabel: UILabel = {
+    private lazy var tossBankTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "토스뱅크"
         label.font = UIFont.systemFont(ofSize: 22.0, weight: .heavy)
         return label
     }()
     
-    private let tossBankTitleImageButton: UIButton = {
+    private lazy var tossBankTitleImageButton: UIButton = {
         let button = UIButton()
         let image = UIImage(systemName: "chevron.right")
         button.setImage(image, for: .normal)
@@ -94,53 +94,53 @@ final class HomeViewController: UIViewController {
         return button
     }()
     
-    private let tossBankContentsView: UIView = {
+    private lazy var tossBankContentsView: UIView = {
         let view = UIView()
         return view
     }()
     
-    private let tossBankContentsImageView: UIImageView = {
+    private lazy var tossBankContentsImageView: UIImageView = {
         let image = UIImage(systemName: "bell.fill")
         let imageView = UIImageView(image: image)
         return imageView
     }()
     
-    private let tossBankContentsTitleLabel: UILabel = {
+    private lazy var tossBankContentsTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "7월 1일 대출 규제 변경"
         label.font = UIFont.systemFont(ofSize: 14.0, weight: .regular)
         return label
     }()
     
-    private let tossBankContentsDescriptionLabel: UILabel = {
+    private lazy var tossBankContentsDescriptionLabel: UILabel = {
         let label = UILabel()
         label.text = "내 한도가 올랐는지 확인하기"
         label.font = UIFont.systemFont(ofSize: 18.0, weight: .bold)
         return label
     }()
     
-    private let assetView: UIView = {
+    private lazy var assetView: UIView = {
         let view = UIView()
         view.backgroundColor = ColorStyle.contentView.color
         view.layer.cornerRadius = 20
         return view
     }()
     
-    private let consumptionView: UIView = {
+    private lazy var consumptionView: UIView = {
         let view = UIView()
         view.backgroundColor = ColorStyle.contentView.color
         view.layer.cornerRadius = 20
         return view
     }()
     
-    private let collectionView: UIView = {
+    private lazy var collectionView: UIView = {
         let view = UIView()
         view.backgroundColor = ColorStyle.contentView.color
         view.layer.cornerRadius = 20
         return view
     }()
     
-    private let lastView: UIView = {
+    private lazy var lastView: UIView = {
         let view = UIView()
         return view
     }()
