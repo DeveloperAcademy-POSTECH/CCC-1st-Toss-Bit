@@ -9,7 +9,7 @@ import UIKit
 
 class CustomTabBarController: UITabBarController {
     
-    enum TabBarPage {
+    enum TabBarPage: CaseIterable {
         case home
         case benefit
         case remit
@@ -133,9 +133,9 @@ extension CustomTabBarController {
     }
     
     private func configureViewControllers() {
-        let pages: [TabBarPage] = [.home, .benefit, .remit, .stock, .whole]
-            .sorted(by: { $0.pageOrderNumber() < $1.pageOrderNumber() })
-        let controllers: [UINavigationController] = pages.map({ getNavigationController($0) })
+        let controllers = TabBarPage.allCases.map {
+            return getNavigationController($0)
+        }
         self.viewControllers = controllers
     }
     
