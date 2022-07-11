@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		43746BD8286AF06500CC2BE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43746BD7286AF06500CC2BE3 /* AppDelegate.swift */; };
 		43746BDA286AF06500CC2BE3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43746BD9286AF06500CC2BE3 /* SceneDelegate.swift */; };
-		43746BDC286AF06500CC2BE3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43746BDB286AF06500CC2BE3 /* ViewController.swift */; };
-		43746BDF286AF06500CC2BE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43746BDD286AF06500CC2BE3 /* Main.storyboard */; };
 		43746BE1286AF06600CC2BE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43746BE0286AF06600CC2BE3 /* Assets.xcassets */; };
 		43746BE4286AF06600CC2BE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43746BE2286AF06600CC2BE3 /* LaunchScreen.storyboard */; };
+		43EF0F782872C98D00C4D82F /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EF0F772872C98D00C4D82F /* CustomTabBarController.swift */; };
+		43EF0F7A2872C9E200C4D82F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EF0F792872C9E200C4D82F /* HomeViewController.swift */; };
+		F8F0D5A724641F94302E38BB /* Pods_TossClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25358554152819CEABDCDB37 /* Pods_TossClone.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		25358554152819CEABDCDB37 /* Pods_TossClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TossClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		36CE659974BC84BB1825FB5B /* Pods-TossClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TossClone.release.xcconfig"; path = "Target Support Files/Pods-TossClone/Pods-TossClone.release.xcconfig"; sourceTree = "<group>"; };
 		43746BD4286AF06500CC2BE3 /* TossClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TossClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43746BD7286AF06500CC2BE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43746BD9286AF06500CC2BE3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		43746BDB286AF06500CC2BE3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		43746BDE286AF06500CC2BE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		43746BE0286AF06600CC2BE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43746BE3286AF06600CC2BE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43746BE5286AF06600CC2BE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43EF0F772872C98D00C4D82F /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		43EF0F792872C9E200C4D82F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		6C03D3FF1BBB809A1A8D87B6 /* Pods-TossClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TossClone.debug.xcconfig"; path = "Target Support Files/Pods-TossClone/Pods-TossClone.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8F0D5A724641F94302E38BB /* Pods_TossClone.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		325F503F5817065C284E7FBA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				25358554152819CEABDCDB37 /* Pods_TossClone.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		43746BCB286AF06500CC2BE3 = {
 			isa = PBXGroup;
 			children = (
 				43746BD6286AF06500CC2BE3 /* TossClone */,
 				43746BD5286AF06500CC2BE3 /* Products */,
+				4A53CFC22BD06E84554A5872 /* Pods */,
+				325F503F5817065C284E7FBA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +73,22 @@
 			children = (
 				43746BD7286AF06500CC2BE3 /* AppDelegate.swift */,
 				43746BD9286AF06500CC2BE3 /* SceneDelegate.swift */,
-				43746BDB286AF06500CC2BE3 /* ViewController.swift */,
-				43746BDD286AF06500CC2BE3 /* Main.storyboard */,
+				43EF0F772872C98D00C4D82F /* CustomTabBarController.swift */,
+				43EF0F792872C9E200C4D82F /* HomeViewController.swift */,
 				43746BE0286AF06600CC2BE3 /* Assets.xcassets */,
 				43746BE2286AF06600CC2BE3 /* LaunchScreen.storyboard */,
 				43746BE5286AF06600CC2BE3 /* Info.plist */,
 			);
 			path = TossClone;
+			sourceTree = "<group>";
+		};
+		4A53CFC22BD06E84554A5872 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6C03D3FF1BBB809A1A8D87B6 /* Pods-TossClone.debug.xcconfig */,
+				36CE659974BC84BB1825FB5B /* Pods-TossClone.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 43746BE8286AF06600CC2BE3 /* Build configuration list for PBXNativeTarget "TossClone" */;
 			buildPhases = (
+				4994861E0487EB09341DF8BC /* [CP] Check Pods Manifest.lock */,
 				43746BD0286AF06500CC2BE3 /* Sources */,
 				43746BD1286AF06500CC2BE3 /* Frameworks */,
 				43746BD2286AF06500CC2BE3 /* Resources */,
+				43E1C0F9286C9FF0006499DA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -127,19 +153,61 @@
 			files = (
 				43746BE4286AF06600CC2BE3 /* LaunchScreen.storyboard in Resources */,
 				43746BE1286AF06600CC2BE3 /* Assets.xcassets in Resources */,
-				43746BDF286AF06500CC2BE3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		43E1C0F9286C9FF0006499DA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
+		4994861E0487EB09341DF8BC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TossClone-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		43746BD0286AF06500CC2BE3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43746BDC286AF06500CC2BE3 /* ViewController.swift in Sources */,
+				43EF0F7A2872C9E200C4D82F /* HomeViewController.swift in Sources */,
 				43746BD8286AF06500CC2BE3 /* AppDelegate.swift in Sources */,
+				43EF0F782872C98D00C4D82F /* CustomTabBarController.swift in Sources */,
 				43746BDA286AF06500CC2BE3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,14 +215,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		43746BDD286AF06500CC2BE3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				43746BDE286AF06500CC2BE3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		43746BE2286AF06600CC2BE3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -282,6 +342,7 @@
 		};
 		43746BE9286AF06600CC2BE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C03D3FF1BBB809A1A8D87B6 /* Pods-TossClone.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -292,7 +353,6 @@
 				INFOPLIST_FILE = TossClone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -310,6 +370,7 @@
 		};
 		43746BEA286AF06600CC2BE3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36CE659974BC84BB1825FB5B /* Pods-TossClone.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -320,7 +381,6 @@
 				INFOPLIST_FILE = TossClone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
