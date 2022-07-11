@@ -113,7 +113,7 @@ class CustomTabBarController: UITabBarController {
 extension CustomTabBarController {
     
     private func configureTabBar() {
-        tabBar.backgroundColor = .secondarySystemGroupedBackground
+        tabBar.backgroundColor = .systemBackground
         tabBar.tintColor = .label
     }
     
@@ -121,7 +121,7 @@ extension CustomTabBarController {
         tabBar.layer.cornerRadius = 25
         tabBar.layer.masksToBounds = true
         tabBar.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-        tabBar.layer.borderWidth = 1
+        tabBar.layer.borderWidth = 0.5
     }
     
     private func getNavigationController(_ page: TabBarPage) -> UINavigationController {

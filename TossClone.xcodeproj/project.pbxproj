@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4353AF29287C67C700AEA219 /* ColorAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4353AF28287C67C700AEA219 /* ColorAsset.swift */; };
 		43746BD8286AF06500CC2BE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43746BD7286AF06500CC2BE3 /* AppDelegate.swift */; };
 		43746BDA286AF06500CC2BE3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43746BD9286AF06500CC2BE3 /* SceneDelegate.swift */; };
 		43746BE1286AF06600CC2BE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43746BE0286AF06600CC2BE3 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		25358554152819CEABDCDB37 /* Pods_TossClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TossClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36CE659974BC84BB1825FB5B /* Pods-TossClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TossClone.release.xcconfig"; path = "Target Support Files/Pods-TossClone/Pods-TossClone.release.xcconfig"; sourceTree = "<group>"; };
+		4353AF28287C67C700AEA219 /* ColorAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAsset.swift; sourceTree = "<group>"; };
 		43746BD4286AF06500CC2BE3 /* TossClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TossClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43746BD7286AF06500CC2BE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43746BD9286AF06500CC2BE3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				43746BD9286AF06500CC2BE3 /* SceneDelegate.swift */,
 				43EF0F772872C98D00C4D82F /* CustomTabBarController.swift */,
 				43EF0F792872C9E200C4D82F /* HomeViewController.swift */,
+				4353AF28287C67C700AEA219 /* ColorAsset.swift */,
 				43746BE0286AF06600CC2BE3 /* Assets.xcassets */,
 				43746BE2286AF06600CC2BE3 /* LaunchScreen.storyboard */,
 				43746BE5286AF06600CC2BE3 /* Info.plist */,
@@ -208,6 +211,7 @@
 				43EF0F7A2872C9E200C4D82F /* HomeViewController.swift in Sources */,
 				43746BD8286AF06500CC2BE3 /* AppDelegate.swift in Sources */,
 				43EF0F782872C98D00C4D82F /* CustomTabBarController.swift in Sources */,
+				4353AF29287C67C700AEA219 /* ColorAsset.swift in Sources */,
 				43746BDA286AF06500CC2BE3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
