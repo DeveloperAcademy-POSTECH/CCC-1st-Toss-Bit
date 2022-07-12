@@ -218,6 +218,85 @@ final class HomeViewController: UIViewController {
         return view
     }()
     
+    private lazy var consumptionTitleView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    private lazy var consumptionTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "소비"
+        label.font = UIFont.systemFont(ofSize: 22.0, weight: .heavy)
+        return label
+    }()
+    
+    private lazy var consumptionTopContentsView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    private lazy var consumptionTopContentsImageView: UIImageView = {
+        let image = UIImage(systemName: "rectangle.fill")
+        let imageView = UIImageView(image: image)
+        return imageView
+    }()
+    
+    private lazy var consumptionTopContentsTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "이번 달 쓴 금액"
+        label.font = UIFont.systemFont(ofSize: 14.0, weight: .regular)
+        return label
+    }()
+    
+    private lazy var consumptionTopContentsDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "0원"
+        label.font = UIFont.systemFont(ofSize: 18.0, weight: .bold)
+        return label
+    }()
+    
+    private lazy var consumptionTopContentsButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("내역", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14.0, weight: .regular)
+        button.backgroundColor = .systemGray5
+        button.layer.cornerRadius = 5
+        return button
+    }()
+    
+    private lazy var consumptionBottomContentsView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    private lazy var consumptionBottomContentsImageView: UIImageView = {
+        let image = UIImage(systemName: "rectangle.fill")
+        let imageView = UIImageView(image: image)
+        return imageView
+    }()
+    
+    private lazy var consumptionBottomContentsTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "실적, 혜택도 알려드려요"
+        label.font = UIFont.systemFont(ofSize: 14.0, weight: .regular)
+        return label
+    }()
+    
+    private lazy var consumptionBottomContentsDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "신한카드 쓴 금액 보기"
+        label.font = UIFont.systemFont(ofSize: 18.0, weight: .bold)
+        return label
+    }()
+    
+    private lazy var consumptionBottomContentsButton: UIButton = {
+        let button = UIButton()
+        let image = UIImage(systemName: "chevron.right")
+        button.setImage(image, for: .normal)
+        button.tintColor = .darkGray
+        return button
+    }()
+    
     private lazy var collectionView: UIView = {
         let view = UIView()
         view.backgroundColor = ColorStyle.contentView.color
@@ -258,6 +337,7 @@ extension HomeViewController {
         
         configureAddSubViewsTossBank()
         configureAddSubViewsAsset()
+        configureAddSubViewsConsumption()
     }
     
     private func configureConstraints() {
@@ -282,6 +362,7 @@ extension HomeViewController {
         
         configureConstraintsTossBank()
         configureConstraintsAsset()
+        configureConstraintsConsumption()
         
         consumptionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -506,6 +587,125 @@ extension HomeViewController {
             assetBottomContentsDescriptionLabel.topAnchor.constraint(equalTo: assetBottomContentsTitleLabel.bottomAnchor, constant: 5),
             assetBottomContentsDescriptionLabel.leadingAnchor.constraint(equalTo: assetBottomContentsTitleLabel.leadingAnchor),
             assetBottomContentsDescriptionLabel.trailingAnchor.constraint(equalTo: assetBottomContentsTitleLabel.trailingAnchor)
+        ])
+    }
+    
+}
+
+extension HomeViewController {
+    
+    private func configureAddSubViewsConsumption() {
+        consumptionView.addSubview(consumptionTitleView)
+        consumptionView.addSubview(consumptionTopContentsView)
+        consumptionView.addSubview(consumptionBottomContentsView)
+        
+        consumptionTitleView.addSubview(consumptionTitleLabel)
+        
+        consumptionTopContentsView.addSubview(consumptionTopContentsImageView)
+        consumptionTopContentsView.addSubview(consumptionTopContentsTitleLabel)
+        consumptionTopContentsView.addSubview(consumptionTopContentsDescriptionLabel)
+        consumptionTopContentsView.addSubview(consumptionTopContentsButton)
+        
+        consumptionBottomContentsView.addSubview(consumptionBottomContentsImageView)
+        consumptionBottomContentsView.addSubview(consumptionBottomContentsTitleLabel)
+        consumptionBottomContentsView.addSubview(consumptionBottomContentsDescriptionLabel)
+        consumptionBottomContentsView.addSubview(consumptionBottomContentsButton)
+    }
+    
+    private func configureConstraintsConsumption() {
+        consumptionView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            consumptionView.heightAnchor.constraint(equalToConstant: 250)
+        ])
+        
+        consumptionTitleView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            consumptionTitleView.topAnchor.constraint(equalTo: consumptionView.topAnchor),
+            consumptionTitleView.leadingAnchor.constraint(equalTo: consumptionView.leadingAnchor),
+            consumptionTitleView.trailingAnchor.constraint(equalTo: consumptionView.trailingAnchor),
+            consumptionTitleView.heightAnchor.constraint(equalToConstant: 65)
+        ])
+        
+        consumptionTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            consumptionTitleLabel.centerYAnchor.constraint(equalTo: consumptionTitleView.centerYAnchor, constant: 5),
+            consumptionTitleLabel.leadingAnchor.constraint(equalTo: consumptionTitleView.leadingAnchor, constant: 20)
+        ])
+        
+        consumptionTopContentsView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            consumptionTopContentsView.topAnchor.constraint(equalTo: consumptionTitleView.bottomAnchor),
+            consumptionTopContentsView.leadingAnchor.constraint(equalTo: consumptionView.leadingAnchor),
+            consumptionTopContentsView.trailingAnchor.constraint(equalTo: consumptionView.trailingAnchor),
+            consumptionTopContentsView.heightAnchor.constraint(equalToConstant: 92)
+        ])
+        
+        consumptionTopContentsImageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            consumptionTopContentsImageView.centerYAnchor.constraint(equalTo: consumptionTopContentsView.centerYAnchor, constant: -5),
+            consumptionTopContentsImageView.leadingAnchor.constraint(equalTo: consumptionTopContentsView.leadingAnchor, constant: 25),
+            consumptionTopContentsImageView.widthAnchor.constraint(equalToConstant: 40),
+            consumptionTopContentsImageView.heightAnchor.constraint(equalToConstant: 40)
+        ])
+        
+        consumptionTopContentsTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            consumptionTopContentsTitleLabel.topAnchor.constraint(equalTo: consumptionTopContentsImageView.topAnchor),
+            consumptionTopContentsTitleLabel.leadingAnchor.constraint(equalTo: consumptionTopContentsImageView.trailingAnchor, constant: 20),
+            consumptionTopContentsTitleLabel.trailingAnchor.constraint(equalTo: consumptionTopContentsView.trailingAnchor, constant: -20)
+        ])
+        
+        consumptionTopContentsDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            consumptionTopContentsDescriptionLabel.topAnchor.constraint(equalTo: consumptionTopContentsTitleLabel.bottomAnchor, constant: 5),
+            consumptionTopContentsDescriptionLabel.leadingAnchor.constraint(equalTo: consumptionTopContentsTitleLabel.leadingAnchor),
+            consumptionTopContentsDescriptionLabel.trailingAnchor.constraint(equalTo: consumptionTopContentsTitleLabel.trailingAnchor)
+        ])
+        
+        consumptionTopContentsButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            consumptionTopContentsButton.centerYAnchor.constraint(equalTo: consumptionTopContentsImageView.centerYAnchor),
+            consumptionTopContentsButton.trailingAnchor.constraint(equalTo: consumptionTopContentsView.trailingAnchor, constant: -20),
+            consumptionTopContentsButton.widthAnchor.constraint(equalTo: consumptionTopContentsButton.heightAnchor, multiplier: 2)
+            
+        ])
+        
+        consumptionBottomContentsView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            consumptionBottomContentsView.topAnchor.constraint(equalTo: consumptionTopContentsView.bottomAnchor),
+            consumptionBottomContentsView.leadingAnchor.constraint(equalTo: consumptionView.leadingAnchor),
+            consumptionBottomContentsView.trailingAnchor.constraint(equalTo: consumptionView.trailingAnchor),
+            consumptionBottomContentsView.bottomAnchor.constraint(equalTo: consumptionView.bottomAnchor)
+        ])
+        
+        consumptionBottomContentsImageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            consumptionBottomContentsImageView.centerYAnchor.constraint(equalTo: consumptionBottomContentsView.centerYAnchor, constant: -5),
+            consumptionBottomContentsImageView.leadingAnchor.constraint(equalTo: consumptionBottomContentsView.leadingAnchor, constant: 25),
+            consumptionBottomContentsImageView.widthAnchor.constraint(equalToConstant: 40),
+            consumptionBottomContentsImageView.heightAnchor.constraint(equalToConstant: 40)
+        ])
+        
+        consumptionBottomContentsTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            consumptionBottomContentsTitleLabel.topAnchor.constraint(equalTo: consumptionBottomContentsImageView.topAnchor),
+            consumptionBottomContentsTitleLabel.leadingAnchor.constraint(equalTo: consumptionBottomContentsImageView.trailingAnchor, constant: 20),
+            consumptionBottomContentsTitleLabel.trailingAnchor.constraint(equalTo: consumptionBottomContentsView.trailingAnchor, constant: -20)
+        ])
+        
+        consumptionBottomContentsDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            consumptionBottomContentsDescriptionLabel.topAnchor.constraint(equalTo: consumptionBottomContentsTitleLabel.bottomAnchor, constant: 5),
+            consumptionBottomContentsDescriptionLabel.leadingAnchor.constraint(equalTo: consumptionBottomContentsTitleLabel.leadingAnchor),
+            consumptionBottomContentsDescriptionLabel.trailingAnchor.constraint(equalTo: consumptionBottomContentsTitleLabel.trailingAnchor)
+        ])
+        
+        consumptionBottomContentsButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            consumptionBottomContentsButton.centerYAnchor.constraint(equalTo: consumptionBottomContentsImageView.centerYAnchor),
+            consumptionBottomContentsButton.trailingAnchor.constraint(equalTo: consumptionBottomContentsView.trailingAnchor, constant: -20),
+            consumptionBottomContentsButton.widthAnchor.constraint(equalTo: consumptionBottomContentsButton.heightAnchor, multiplier: 2)
+            
         ])
     }
     
