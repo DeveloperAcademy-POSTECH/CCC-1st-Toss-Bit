@@ -309,6 +309,24 @@ final class HomeViewController: UIViewController {
         return view
     }()
     
+    private lazy var lastLeftLabel: UILabel = {
+        let label = UILabel()
+        label.text = "금액 숨기기"
+        return label
+    }()
+    
+    private lazy var lastMiddleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "|"
+        return label
+    }()
+    
+    private lazy var lastRightLabel: UILabel = {
+        let label = UILabel()
+        label.text = "자산 추가"
+        return label
+    }()
+    
     override func loadView() {
         self.view = UIView()
         
@@ -338,6 +356,7 @@ extension HomeViewController {
         configureAddSubViewsTossBank()
         configureAddSubViewsAsset()
         configureAddSubViewsConsumption()
+        configureAddSubViewsLast()
     }
     
     private func configureConstraints() {
@@ -374,10 +393,7 @@ extension HomeViewController {
             collectionView.heightAnchor.constraint(equalToConstant: 200)
         ])
         
-        lastView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            lastView.heightAnchor.constraint(equalToConstant: 100)
-        ])
+        configureConstraintsLast()
     }
     
     private func setNavigationItem() {
@@ -706,6 +722,41 @@ extension HomeViewController {
             consumptionBottomContentsButton.trailingAnchor.constraint(equalTo: consumptionBottomContentsView.trailingAnchor, constant: -20),
             consumptionBottomContentsButton.widthAnchor.constraint(equalTo: consumptionBottomContentsButton.heightAnchor, multiplier: 2)
             
+        ])
+    }
+    
+}
+
+extension HomeViewController {
+    
+    private func configureAddSubViewsLast() {
+        lastView.addSubview(lastLeftLabel)
+        lastView.addSubview(lastMiddleLabel)
+        lastView.addSubview(lastRightLabel)
+    }
+    
+    private func configureConstraintsLast() {
+        lastView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            lastView.heightAnchor.constraint(equalToConstant: 100)
+        ])
+        
+        lastMiddleLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            lastMiddleLabel.centerXAnchor.constraint(equalTo: lastView.centerXAnchor),
+            lastMiddleLabel.centerYAnchor.constraint(equalTo: lastView.centerYAnchor)
+        ])
+        
+        lastLeftLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            lastLeftLabel.centerYAnchor.constraint(equalTo: lastMiddleLabel.centerYAnchor),
+            lastLeftLabel.trailingAnchor.constraint(equalTo: lastMiddleLabel.leadingAnchor, constant: -20)
+        ])
+        
+        lastRightLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            lastRightLabel.centerYAnchor.constraint(equalTo: lastMiddleLabel.centerYAnchor),
+            lastRightLabel.leadingAnchor.constraint(equalTo: lastMiddleLabel.trailingAnchor, constant: 20)
         ])
     }
     
