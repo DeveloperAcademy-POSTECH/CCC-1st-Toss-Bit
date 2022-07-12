@@ -9,6 +9,13 @@ import UIKit
 
 final class HomeViewController: UIViewController {
     
+    let dummyData: [CellData] = [
+        CellData(subtitle: "최대 15만원", mainTitle: "카드 혜택받기 ", imageName: "card"),
+        CellData(subtitle: "요즘 인기", mainTitle: "오늘의 머니팁", imageName: "light"),
+        CellData(subtitle: "집 있다면", mainTitle: "내 부동산 시세조회", imageName: "house"),
+        CellData(subtitle: "인기", mainTitle: "더보기", imageName: "")
+    ]
+
     private lazy var logoView: UIStackView = {
         let logoImage = UIImage(named: "toss")
         let button = UIButton()
@@ -297,11 +304,16 @@ final class HomeViewController: UIViewController {
         return button
     }()
     
-    private lazy var collectionView: UIView = {
-        let view = UIView()
-        view.backgroundColor = ColorStyle.contentView.color
-        view.layer.cornerRadius = 20
-        return view
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 120, height: 150)
+        layout.scrollDirection = .horizontal
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.identifier)
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 6, bottom: 0, right: 0)
+        collectionView.showsHorizontalScrollIndicator = false
+        return collectionView
+        
     }()
     
     private lazy var lastView: UIView = {
@@ -331,6 +343,7 @@ final class HomeViewController: UIViewController {
         self.view = UIView()
         
         configureView()
+        configureCollectionView()
         configureAddSubViews()
         configureConstraints()
         
@@ -382,17 +395,7 @@ extension HomeViewController {
         configureConstraintsTossBank()
         configureConstraintsAsset()
         configureConstraintsConsumption()
-        
-        consumptionView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            consumptionView.heightAnchor.constraint(equalToConstant: 250)
-        ])
-        
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            collectionView.heightAnchor.constraint(equalToConstant: 200)
-        ])
-        
+        configureConstraintsCollectionView()
         configureConstraintsLast()
     }
     
@@ -761,3 +764,37 @@ extension HomeViewController {
     }
     
 }
+
+extension HomeViewController {
+    
+    private func configureCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    
+    private func configureConstraintsCollectionView() {
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            collectionView.heightAnchor.constraint(equalToConstant: 150)
+        ])
+    }
+    
+}
+
+extension HomeViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return dummyData.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as? CollectionViewCell else {
+            fatalError()
+        }
+        cell.configure(dummyData[indexPath.row])
+        return cell
+    }
+    
+}
+
+extension HomeViewController: UICollectionViewDelegate {}
