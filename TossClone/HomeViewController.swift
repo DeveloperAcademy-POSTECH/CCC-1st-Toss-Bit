@@ -126,6 +126,91 @@ final class HomeViewController: UIViewController {
         return view
     }()
     
+    private lazy var assetTitleView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    private lazy var assetTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "자산"
+        label.font = UIFont.systemFont(ofSize: 22.0, weight: .heavy)
+        return label
+    }()
+    
+    private lazy var assetTitleImageButton: UIButton = {
+        let button = UIButton()
+        let image = UIImage(systemName: "chevron.right")
+        button.setImage(image, for: .normal)
+        button.tintColor = .darkGray
+        return button
+    }()
+    
+    private lazy var assetTopContentsView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    private lazy var assetTopContentsImageView: UIImageView = {
+        let image = UIImage(systemName: "circle.fill")
+        let imageView = UIImageView(image: image)
+        return imageView
+    }()
+    
+    private lazy var assetTopContentsTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "자유저축예금"
+        label.font = UIFont.systemFont(ofSize: 14.0, weight: .regular)
+        return label
+    }()
+    
+    private lazy var assetTopContentsDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "9,948원"
+        label.font = UIFont.systemFont(ofSize: 18.0, weight: .bold)
+        return label
+    }()
+    
+    private lazy var assetTopContentsButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("송금", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14.0, weight: .regular)
+        button.backgroundColor = .systemGray5
+        button.layer.cornerRadius = 5
+        return button
+    }()
+    
+    private lazy var dividerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemGray5
+        return view
+    }()
+    
+    private lazy var assetBottomContentsView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    private lazy var assetBottomContentsImageView: UIImageView = {
+        let image = UIImage(systemName: "circle.fill")
+        let imageView = UIImageView(image: image)
+        return imageView
+    }()
+    
+    private lazy var assetBottomContentsTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "포인트·페이 머니"
+        label.font = UIFont.systemFont(ofSize: 14.0, weight: .regular)
+        return label
+    }()
+    
+    private lazy var assetBottomContentsDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "잔액·내역 불러오기"
+        label.font = UIFont.systemFont(ofSize: 18.0, weight: .bold)
+        return label
+    }()
+    
     private lazy var consumptionView: UIView = {
         let view = UIView()
         view.backgroundColor = ColorStyle.contentView.color
@@ -172,6 +257,7 @@ extension HomeViewController {
         contentScrollView.addSubview(contentStackView)
         
         configureAddSubViewsTossBank()
+        configureAddSubViewsAsset()
     }
     
     private func configureConstraints() {
@@ -195,11 +281,7 @@ extension HomeViewController {
         ])
         
         configureConstraintsTossBank()
-        
-        assetView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            assetView.heightAnchor.constraint(equalToConstant: 250)
-        ])
+        configureConstraintsAsset()
         
         consumptionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -298,6 +380,132 @@ extension HomeViewController {
             tossBankContentsDescriptionLabel.topAnchor.constraint(equalTo: tossBankContentsTitleLabel.bottomAnchor, constant: 5),
             tossBankContentsDescriptionLabel.leadingAnchor.constraint(equalTo: tossBankContentsTitleLabel.leadingAnchor),
             tossBankContentsDescriptionLabel.trailingAnchor.constraint(equalTo: tossBankContentsTitleLabel.trailingAnchor)
+        ])
+    }
+    
+}
+
+extension HomeViewController {
+    
+    private func configureAddSubViewsAsset() {
+        assetView.addSubview(assetTitleView)
+        assetView.addSubview(assetTopContentsView)
+        assetView.addSubview(dividerView)
+        assetView.addSubview(assetBottomContentsView)
+        
+        assetTitleView.addSubview(assetTitleLabel)
+        assetTitleView.addSubview(assetTitleImageButton)
+        
+        assetTopContentsView.addSubview(assetTopContentsImageView)
+        assetTopContentsView.addSubview(assetTopContentsTitleLabel)
+        assetTopContentsView.addSubview(assetTopContentsDescriptionLabel)
+        assetTopContentsView.addSubview(assetTopContentsButton)
+        
+        assetBottomContentsView.addSubview(assetBottomContentsImageView)
+        assetBottomContentsView.addSubview(assetBottomContentsTitleLabel)
+        assetBottomContentsView.addSubview(assetBottomContentsDescriptionLabel)
+    }
+    
+    private func configureConstraintsAsset() {
+        assetView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            assetView.heightAnchor.constraint(equalToConstant: 250)
+        ])
+        
+        assetTitleView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            assetTitleView.topAnchor.constraint(equalTo: assetView.topAnchor),
+            assetTitleView.leadingAnchor.constraint(equalTo: assetView.leadingAnchor),
+            assetTitleView.trailingAnchor.constraint(equalTo: assetView.trailingAnchor),
+            assetTitleView.heightAnchor.constraint(equalToConstant: 65)
+        ])
+        
+        assetTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            assetTitleLabel.centerYAnchor.constraint(equalTo: assetTitleView.centerYAnchor, constant: 5),
+            assetTitleLabel.leadingAnchor.constraint(equalTo: assetTitleView.leadingAnchor, constant: 20)
+        ])
+        
+        assetTitleImageButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            assetTitleImageButton.centerYAnchor.constraint(equalTo: assetTitleView.centerYAnchor),
+            assetTitleImageButton.trailingAnchor.constraint(equalTo: assetTitleView.trailingAnchor, constant: -20)
+        ])
+        
+        assetTopContentsView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            assetTopContentsView.topAnchor.constraint(equalTo: assetTitleView.bottomAnchor),
+            assetTopContentsView.leadingAnchor.constraint(equalTo: assetView.leadingAnchor),
+            assetTopContentsView.trailingAnchor.constraint(equalTo: assetView.trailingAnchor),
+            assetTopContentsView.heightAnchor.constraint(equalToConstant: 92)
+        ])
+        
+        assetTopContentsImageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            assetTopContentsImageView.centerYAnchor.constraint(equalTo: assetTopContentsView.centerYAnchor, constant: -5),
+            assetTopContentsImageView.leadingAnchor.constraint(equalTo: assetTopContentsView.leadingAnchor, constant: 25),
+            assetTopContentsImageView.widthAnchor.constraint(equalToConstant: 40),
+            assetTopContentsImageView.heightAnchor.constraint(equalToConstant: 40)
+        ])
+        
+        assetTopContentsTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            assetTopContentsTitleLabel.topAnchor.constraint(equalTo: assetTopContentsImageView.topAnchor),
+            assetTopContentsTitleLabel.leadingAnchor.constraint(equalTo: assetTopContentsImageView.trailingAnchor, constant: 20),
+            assetTopContentsTitleLabel.trailingAnchor.constraint(equalTo: assetTopContentsView.trailingAnchor, constant: -20)
+        ])
+        
+        assetTopContentsDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            assetTopContentsDescriptionLabel.topAnchor.constraint(equalTo: assetTopContentsTitleLabel.bottomAnchor, constant: 5),
+            assetTopContentsDescriptionLabel.leadingAnchor.constraint(equalTo: assetTopContentsTitleLabel.leadingAnchor),
+            assetTopContentsDescriptionLabel.trailingAnchor.constraint(equalTo: assetTopContentsTitleLabel.trailingAnchor)
+        ])
+        
+        assetTopContentsButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            assetTopContentsButton.centerYAnchor.constraint(equalTo: assetTopContentsImageView.centerYAnchor),
+            assetTopContentsButton.trailingAnchor.constraint(equalTo: assetTopContentsView.trailingAnchor, constant: -20),
+            assetTopContentsButton.widthAnchor.constraint(equalTo: assetTopContentsButton.heightAnchor, multiplier: 2)
+            
+        ])
+        
+        dividerView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            dividerView.topAnchor.constraint(equalTo: assetTopContentsView.bottomAnchor),
+            dividerView.leadingAnchor.constraint(equalTo: assetTopContentsImageView.leadingAnchor),
+            dividerView.trailingAnchor.constraint(equalTo: assetTopContentsButton.trailingAnchor),
+            dividerView.heightAnchor.constraint(equalToConstant: 1)
+        ])
+        
+        assetBottomContentsView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            assetBottomContentsView.topAnchor.constraint(equalTo: dividerView.bottomAnchor),
+            assetBottomContentsView.leadingAnchor.constraint(equalTo: assetView.leadingAnchor),
+            assetBottomContentsView.trailingAnchor.constraint(equalTo: assetView.trailingAnchor),
+            assetBottomContentsView.bottomAnchor.constraint(equalTo: assetView.bottomAnchor)
+        ])
+        
+        assetBottomContentsImageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            assetBottomContentsImageView.centerYAnchor.constraint(equalTo: assetBottomContentsView.centerYAnchor, constant: -5),
+            assetBottomContentsImageView.leadingAnchor.constraint(equalTo: assetBottomContentsView.leadingAnchor, constant: 25),
+            assetBottomContentsImageView.widthAnchor.constraint(equalToConstant: 40),
+            assetBottomContentsImageView.heightAnchor.constraint(equalToConstant: 40)
+        ])
+        
+        assetBottomContentsTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            assetBottomContentsTitleLabel.topAnchor.constraint(equalTo: assetBottomContentsImageView.topAnchor),
+            assetBottomContentsTitleLabel.leadingAnchor.constraint(equalTo: assetBottomContentsImageView.trailingAnchor, constant: 20),
+            assetBottomContentsTitleLabel.trailingAnchor.constraint(equalTo: assetBottomContentsView.trailingAnchor, constant: -20)
+        ])
+        
+        assetBottomContentsDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            assetBottomContentsDescriptionLabel.topAnchor.constraint(equalTo: assetBottomContentsTitleLabel.bottomAnchor, constant: 5),
+            assetBottomContentsDescriptionLabel.leadingAnchor.constraint(equalTo: assetBottomContentsTitleLabel.leadingAnchor),
+            assetBottomContentsDescriptionLabel.trailingAnchor.constraint(equalTo: assetBottomContentsTitleLabel.trailingAnchor)
         ])
     }
     
