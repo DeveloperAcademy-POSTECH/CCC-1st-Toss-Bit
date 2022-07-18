@@ -10,9 +10,9 @@ import UIKit
 final class HomeViewController: UIViewController {
     
     let dummyData: [CellData] = [
-        CellData(subtitle: "최대 15만원", mainTitle: "카드 혜택받기 ", imageName: "card"),
-        CellData(subtitle: "요즘 인기", mainTitle: "오늘의 머니팁", imageName: "light"),
-        CellData(subtitle: "집 있다면", mainTitle: "내 부동산 시세조회", imageName: "house"),
+        CellData(subtitle: "53개 금융사", mainTitle: "대출 한도 조회", imageName: "card"),
+        CellData(subtitle: "안전하게", mainTitle: "신용점수 보기", imageName: "light"),
+        CellData(subtitle: "최근", mainTitle: "카드 혜택 받기", imageName: "house"),
         CellData(subtitle: "인기", mainTitle: "더보기", imageName: "")
     ]
 
@@ -306,11 +306,10 @@ final class HomeViewController: UIViewController {
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 120, height: 150)
+        layout.itemSize = CGSize(width: 130, height: 150)
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.identifier)
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 6, bottom: 0, right: 0)
         collectionView.showsHorizontalScrollIndicator = false
         return collectionView
         
@@ -789,9 +788,9 @@ extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as? CollectionViewCell else {
-            fatalError()
+            return UICollectionViewCell()
         }
-        cell.configure(dummyData[indexPath.row])
+        cell.updateUI(at: dummyData[indexPath.row])
         return cell
     }
     
