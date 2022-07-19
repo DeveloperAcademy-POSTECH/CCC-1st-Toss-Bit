@@ -10,9 +10,9 @@ import UIKit
 final class HomeViewController: UIViewController {
     
     let dummyData: [CellData] = [
-        CellData(subtitle: "53개 금융사", mainTitle: "대출 한도 조회", imageName: "card"),
-        CellData(subtitle: "안전하게", mainTitle: "신용점수 보기", imageName: "light"),
-        CellData(subtitle: "최근", mainTitle: "카드 혜택 받기", imageName: "house"),
+        CellData(subtitle: "53개 금융사", mainTitle: "대출 한도 조회", imageName: "3"),
+        CellData(subtitle: "안전하게", mainTitle: "신용점수 보기", imageName: "4"),
+        CellData(subtitle: "최근", mainTitle: "카드 혜택 받기", imageName: "5"),
         CellData(subtitle: "인기", mainTitle: "더보기", imageName: "")
     ]
 
@@ -107,7 +107,7 @@ final class HomeViewController: UIViewController {
     }()
     
     private lazy var tossBankContentsImageView: UIImageView = {
-        let image = UIImage(systemName: "bell.fill")
+        let image = UIImage(named: "0")
         let imageView = UIImageView(image: image)
         return imageView
     }()
@@ -159,8 +159,10 @@ final class HomeViewController: UIViewController {
     }()
     
     private lazy var assetTopContentsImageView: UIImageView = {
-        let image = UIImage(systemName: "circle.fill")
+        let image = UIImage(named: "naver")
         let imageView = UIImageView(image: image)
+        imageView.layer.cornerRadius = 20
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -199,8 +201,11 @@ final class HomeViewController: UIViewController {
     }()
     
     private lazy var assetBottomContentsImageView: UIImageView = {
-        let image = UIImage(systemName: "circle.fill")
+        let image = UIImage(named: "kakao")
         let imageView = UIImageView(image: image)
+        imageView.sizeToFit()
+        imageView.layer.cornerRadius = 20
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -243,7 +248,7 @@ final class HomeViewController: UIViewController {
     }()
     
     private lazy var consumptionTopContentsImageView: UIImageView = {
-        let image = UIImage(systemName: "rectangle.fill")
+        let image = UIImage(named: "1")
         let imageView = UIImageView(image: image)
         return imageView
     }()
@@ -277,7 +282,7 @@ final class HomeViewController: UIViewController {
     }()
     
     private lazy var consumptionBottomContentsImageView: UIImageView = {
-        let image = UIImage(systemName: "rectangle.fill")
+        let image = UIImage(named: "2")
         let imageView = UIImageView(image: image)
         return imageView
     }()
